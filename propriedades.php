@@ -31,33 +31,43 @@
     <main class="container mx-auto mt-6 p-4">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Propriedades à Venda</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Property Card 1 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img class="w-full h-48 object-cover"
-                    src="property1.jpg"
-                    alt="Propriedade 1">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold text-gray-800">Propriedade 1</h3>
-                    <p class="text-gray-600 mt-2">Descrição breve da propriedade 1.</p>
-                </div>
-            </div>
-            <!-- Property Card 2 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img class="w-full h-48 object-cover" src="property2.jpg" alt="Propriedade 2">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold text-gray-800">Propriedade 2</h3>
-                    <p class="text-gray-600 mt-2">Descrição breve da propriedade 2.</p>
-                </div>
-            </div>
-            <!-- Property Card 3 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img class="w-full h-48 object-cover" src="property3.jpg" alt="Propriedade 3">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold text-gray-800">Propriedade 3</h3>
-                    <p class="text-gray-600 mt-2">Descrição breve da propriedade 3.</p>
-                </div>
-            </div>
-            <!-- Add more property cards as needed -->
+            <?php
+            // Configurações do Banco de Dados
+            $hostname = 'localhost';
+            $username = 'root';
+            $password = '';
+            $database = 'imobiliaria';
+
+            // Conectar ao Banco de Dados
+            $conn = new mysqli($hostname, $username, $password, $database);
+
+            // Verificar conexão
+            if ($conn->connect_error) {
+                die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+            }
+
+            // Query para selecionar imóveis
+            $sql = "SELECT cd_imovel, descricao, imagem FROM imovel";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Exibir imóveis encontrados
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="bg-white shadow-lg rounded-lg overflow-hidden">';
+                    echo '<a href="exibir_prop.php?cd_imovel=' . $row['cd_imovel'] . '">';
+                    echo '<img class="w-full h-48 object-cover" src="uploads/' . $row['imagem'] . '" alt="' . $row['descricao'] . '">';
+                    echo '</a>';
+                    echo '<div class="p-4">';
+                    echo '<h3 class="text-xl font-bold text-gray-800">' . $row['descricao'] . '</h3>';
+                    echo '<p class="text-gray-600 mt-2">' . $row['descricao'] . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "Nenhum imóvel encontrado.";
+            }
+            $conn->close();
+            ?>
         </div>
     </main>
 

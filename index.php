@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adicionando Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Adicionando Tailwind Css -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Adicionando JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -91,8 +94,8 @@
                     <li><a href="index.php" class="text-blue-900 hover:text-yellow-500">Home</a></li>
                     <li><a href="propriedades.php" class="text-blue-900 hover:text-yellow-500">Propriedades</a></li>
                     <li><a href="index.php#anunciar-prop" class="text-blue-900 hover:text-yellow-500">Anunciar</a></li>
-                    <li><a href="#servicos" class="text-blue-900 hover:text-yellow-500">Serviços</a></li>
-                    <li><a href="#" class="text-blue-900 hover:text-yellow-500">Contato</a></li>
+                    <li><a href="index.php#servicos" class="text-blue-900 hover:text-yellow-500">Serviços</a></li>
+                    <li><a href="index.php#contato" class="text-blue-900 hover:text-yellow-500">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -116,9 +119,9 @@
                         <select id="property-type" name="property-type"
                             class="w-full p-2 border border-gray-300 rounded">
                             <option value="">Selecione</option>
-                            <option value="casa">Casa</option>
-                            <option value="apartamento">Apartamento</option>
-                            <option value="sala_comercial">Sala Comercial</option>
+                            <option value="2">Casa</option>
+                            <option value="1">Apartamento</option>
+                            <option value="3">Sala Comercial</option>
                         </select>
                     </div>
                     <div>
@@ -139,37 +142,7 @@
         </div>
     </section>
 
-    <!-- Main Content -->
     <main class="container mx-auto mt-6 p-4">
-        <!-- Featured Properties -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Propriedades em Destaque</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img class="w-full h-48 object-cover"
-                        src="https://st3.idealista.pt/news/arquivos/styles/imagen_big_lightbox/public/2020-08/05.jpg?sv=RkjXYLuF&itok=a1juXSla"
-                        alt="Propriedade 1">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold text-gray-800">Propriedade 1</h3>
-                        <p class="text-gray-600 mt-2">Descrição breve da propriedade 1.</p>
-                    </div>
-                </div>
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img class="w-full h-48 object-cover" src="property2.jpg" alt="Propriedade 2">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold text-gray-800">Propriedade 2</h3>
-                        <p class="text-gray-600 mt-2">Descrição breve da propriedade 2.</p>
-                    </div>
-                </div>
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img class="w-full h-48 object-cover" src="property3.jpg" alt="Propriedade 3">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold text-gray-800">Propriedade 3</h3>
-                        <p class="text-gray-600 mt-2">Descrição breve da propriedade 3.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Serviços -->
         <section class="mb-8" id="servicos">
@@ -194,13 +167,12 @@
         </section>
 
         <!-- Anunciar -->
-        <section id="anunciar-prop" class="relative mb-8 bg-cover shadow-lg bg-center"
-            style="background-image: url('https://algarveproperty.proppycrm.com/ContentFiles/347/1637768104_4.jpg?quality=80&mode=crop');">
+        <section id="anunciar-prop" class="relative mb-none bg-yellow-400 shadow-lg bg-center">
             <div class="container mx-auto">
                 <div id="banner-anuncie" class="grid grid-cols-1 md:grid-cols-2 gap-4 py-12">
                     <!-- Coluna de texto e imagem -->
                     <div class="flex justify-center items-center">
-                        <div class="text-center bg-white rounded-lg shadow-lg p-6 bg-opacity-80">
+                        <div class="text-center bg-white rounded-lg shadow-lg p-6 bg-opacity-100">
                             <h1 class="text-3xl font-bold mb-4">Anuncie o seu imóvel na G&A</h1>
                             <div class="mb-4">
                                 <p><img src="https://www.helmerimoveis.com.br/assets/icons/icon-check.svg"
@@ -216,7 +188,7 @@
                     </div>
                     <!-- Coluna do formulário -->
                     <div class="flex justify-center items-center">
-                        <div class="w-full max-w-lg bg-white bg-opacity-80 rounded-lg shadow-lg p-6">
+                        <div class="w-full max-w-lg bg-white bg-opacity-100 rounded-lg shadow-lg p-6">
                             <form id="anunciarForm" class="grid grid-cols-1 md:grid-cols-8 gap-4"
                                 enctype="multipart/form-data" method="POST" action="upload.php">
 
@@ -225,9 +197,9 @@
                                     <select id="tp_imovel" name="tp_imovel"
                                         class="w-full p-2 border border-gray-300 rounded" required>
                                         <option value="">Selecione o tipo de imóvel</option>
-                                        <option value="casa">Casa</option>
-                                        <option value="apartamento">Apartamento</option>
-                                        <option value="sala_comercial">Sala Comercial</option>
+                                        <option value="2">Casa</option>
+                                        <option value="1">Apartamento</option>
+                                        <option value="3">Sala Comercial</option>
                                     </select>
                                 </div>
 
@@ -386,8 +358,8 @@
                                 <!-- Botão de Enviar -->
                                 <div class="md:col-span-8 text-center">
                                     <button type="submit"
-                                        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Enviar
-                                        Anúncio</button>
+                                        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 uppercase">Anunciar
+                                        Imóvel</button>
                                 </div>
                             </form>
                         </div>
@@ -397,125 +369,95 @@
         </section>
 
         <!-- Contato -->
-        <section class="relative mb-8 bg-cover shadow-lg bg-center">
-            <!-- Contato Section -->
-            <div id="id-contato" class="container-fluid">
-                <div id="banner-anuncie-contato" class="row justify-content-around align-items-center">
-                    <div class="d-flex align-items-center col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                        <div id="container-texto-banner-contato"
-                            class="row d-flex flex-column justify-content-start align-items-center">
-                            <div class="col-12">
-                                <h1 class="text-3xl font-bold mb-4">Informações de contato</h1>
-                                <p class="">
-                                    <img src="https://www.helmerimoveis.com.br/assets/icons/icon-map-branco.svg" /> Av.
-                                    Barra de São Francisco, 884 - Colina, Linhares - ES, 29900-401
-                                </p>
-                                <p class="">
-                                    <a class="link-contato" href="tel:2733710767">
-                                        <img style="width: 21px;"
-                                            src="https://www.helmerimoveis.com.br/assets/icons/icon-phone-branco.svg" />
-                                        (27) 3371-0767
-                                    </a>
-                                </p>
-                                <p class="">
-                                    <a class="link-contato"
-                                        href="https://api.whatsapp.com/send?phone=2733710767&text=Olá, vim através do site da Helmer Imóveis.">
-                                        <img style="width: 21px;"
-                                            src="https://www.helmerimoveis.com.br/assets/icons/redes-sociais/icon-whatsapp-branco.svg" />
-                                        (27) 3371-0767
-                                    </a>
-                                </p>
-                                <p class="">
-                                    <a class="link-contato"
-                                        href="https://api.whatsapp.com/send?phone=27999466368&text=Olá, vim através do site da Helmer Imóveis.">
-                                        <img style="width: 21px;"
-                                            src="https://www.helmerimoveis.com.br/assets/icons/redes-sociais/icon-whatsapp-branco.svg" />
-                                        (27) 9 9946-6368
-                                    </a>
-                                </p>
-                                <p class="">
-                                    <a class="link-contato" href="mailto:helmerimoveis@helmerimoveis.com.br">
-                                        <img style="width: 20px"
-                                            src="https://www.helmerimoveis.com.br/assets/icons/icon-email-branco.png" />
-                                        helmerimoveis@helmerimoveis.com.br
-                                    </a>
-                                </p>
-                            </div>
+        <section id="contato" class="relative mb-none bg-cover shadow-lg bg-center"
+            style="background-image: url('img/img_contato.jpeg');">
+            <div id="id-contato" class="container mx-auto px-4 py-12">
+                <div id="banner-anuncie-contato" class="flex flex-wrap justify-around items-center">
+                    <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+                        <div id="container-texto-banner-contato" class="text-center md:text-left text-white">
+                            <h1 class="text-3xl font-bold mb-4">Informações de contato</h1>
+                            <p class="mb-2">
+                                <img src="https://www.helmerimoveis.com.br/assets/icons/icon-map-branco.svg"
+                                    class="inline-block mr-2" />
+                                Rua Alfredo Zurlo, 74 - São Vicente, Colatina - ES, 29700-430
+                            </p>
+                            <p class="mb-2">
+                                <a href="tel:997133145">
+                                    <img src="https://www.helmerimoveis.com.br/assets/icons/icon-phone-branco.svg"
+                                        style="width: 21px;" class="inline-block mr-2" />
+                                    (27) 99713-3145
+                                </a>
+                            </p>
+                            <p class="mb-2">
+                                <a href="https://api.whatsapp.com/send?phone=27997133145&text=Olá, vim através do site da imobiliária."
+                                    class="link-contato">
+                                    <img src="https://www.helmerimoveis.com.br/assets/icons/redes-sociais/icon-whatsapp-branco.svg"
+                                        style="width: 21px;" class="inline-block mr-2" />
+                                    (27) 9 9713-3145
+                                </a>
+                            </p>
+                            <p class="mb-2">
+                                <a href="https://api.whatsapp.com/send?phone=27997781674&text=Olá, vim através do site da imobiliária."
+                                    class="link-contato">
+                                    <img src="https://www.helmerimoveis.com.br/assets/icons/redes-sociais/icon-whatsapp-branco.svg"
+                                        style="width: 21px;" class="inline-block mr-2" />
+                                    (27) 9 9778-1674
+                                </a>
+                            </p>
+                            <p class="mb-2">
+                                <a href="mailto:gaimobiliaria.contato@gaimobiliaria.com.br" class="link-contato">
+                                    <img src="https://www.helmerimoveis.com.br/assets/icons/icon-email-branco.png"
+                                        style="width: 20px;" class="inline-block mr-2" />
+                                    gaimobiliaria.contato@gaimobiliaria.com.br
+                                </a>
+                            </p>
                         </div>
                     </div>
-                    <div
-                        class="d-flex justify-content-around align-items-center col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                        <div class="form-anuncie">
-                            <div class="form-row">
-                                <h3 class="text-center">Deixe sua mensagem que em breve entraremos em contato</h3>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="w-full md:w-1/2 lg:w-1/3 px-4 text-gray-600">
+                        <div class="form-contato bg-white p-6 rounded-lg md:grid-cols-8">
+                            <h3 class="text-center mb-6">Deixe sua mensagem que em breve entraremos em contato</h3>
+                            <form id="contact-form">
+                                <div class="mb-4">
                                     <label class="label-form">Nome</label>
-                                    <div class="input-group">
-                                        <input id="nome_cont" type="text" class="form-control form-text"
-                                            placeholder="Seu nome">
-                                        <img class="gif-check lazyload"
-                                            data-src="https://www.helmerimoveis.com.br/assets/img/gif/check.gif" />
-                                    </div>
+                                    <input id="nome_cont" type="text"
+                                        class="form-control form-text w-full py-2 px-3 border rounded-md"
+                                        placeholder="Seu nome" required>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <div class="mb-4">
                                     <label class="label-form">E-mail</label>
-                                    <input id="email_cont" type="text" class="form-control form-text"
-                                        placeholder="E-mail">
+                                    <input id="email_cont" type="email"
+                                        class="form-control form-text w-full py-2 px-3 border rounded-md"
+                                        placeholder="E-mail" required>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="mb-4">
                                     <label class="label-form">Telefone</label>
-                                    <div class="">
-                                        <input id="tel_cont" type="text" class="form-control form-text"
-                                            placeholder="(27) 0 0000-0000">
-                                        <img class="gif-check lazyload"
-                                            data-src="https://www.helmerimoveis.com.br/assets/img/gif/check.gif" />
-                                    </div>
+                                    <input id="tel_cont" type="text"
+                                        class="form-control form-text w-full py-2 px-3 border rounded-md"
+                                        placeholder="(27) 0 0000-0000" required>
                                 </div>
-                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <div class="mb-4">
                                     <label class="label-form">Fixo</label>
-                                    <div class="">
-                                        <input id="fixo_cont" type="text" class="form-control form-text"
-                                            placeholder="(27) 0000-0000">
-                                        <img class="gif-check lazyload"
-                                            data-src="https://www.helmerimoveis.com.br/assets/img/gif/check.gif" />
-                                    </div>
+                                    <input id="fixo_cont" type="text"
+                                        class="form-control form-text w-full py-2 px-3 border rounded-md"
+                                        placeholder="(27) 0000-0000">
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="mb-4">
                                     <label class="label-form">Descrição</label>
-                                    <div class="input-group input-group-lg">
-                                        <textarea class="form-control" id="descricao_cont" rows="3"></textarea>
-                                        <img class="gif-check lazyload"
-                                            data-src="https://www.helmerimoveis.com.br/assets/img/gif/check.gif" />
-                                    </div>
+                                    <textarea class="form-control w-full py-2 px-3 border rounded-md"
+                                        id="descricao_cont" rows="3" placeholder="Sua mensagem" required></textarea>
                                 </div>
-                            </div>
-                            <div class="col-12" style="padding-top: 10px;">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <img id="gif-form-cont" style="width: 50px"
-                                        src="https://www.helmerimoveis.com.br/assets/img/gif/loading.gif" />
-                                    <div id="alert-form_cont" class="alert alert-success" role="alert">
-                                        <p>Obrigado pelo contato, nossa equipe vai orientar nos próximos passos.</p>
-                                        <p>Aguarde contato!</p>
-                                    </div>
+                                <div class="mb-4">
+                                    <p class="text-xs my-4">Ao informar meus dados, eu concordo com a
+                                        <a href="https://www.helmerimoveis.com.br/politica-privacidade" target="_blank"
+                                            class="text-blue-500 underline">Política de Privacidade</a>.
+                                    </p>
                                 </div>
-                            </div>
-                            <div class="form-row" style="padding-top: 20px; padding-bottom: 20px;">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                    <p style="font-size: 13px;" class="my-4">Ao informar meus dados, eu concordo com a
-                                        <a style="color:#007bff !important"
-                                            class="text-primary fs-1 text-decoration-underline"
-                                            href="https://www.helmerimoveis.com.br/politica-privacidade"
-                                            target="_blank">Política de Privacidade</a>.</p>
-                                    <button id="submit-contato"
-                                        class="btn btn-light btn-lg btn-primario btn-block">Fazer contato</button>
+                                <div>
+                                    <button type="submit"
+                                        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 uppercase md:col-span-8">Fazer
+                                        contato</button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -530,6 +472,34 @@
             <p>&copy; 2023 G&A Imobiliária. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio do formulário padrão
+
+            // Obtém os valores dos campos do formulário
+            const nome = document.getElementById('nome_cont').value;
+            const email = document.getElementById('email_cont').value;
+            const telefone = document.getElementById('tel_cont').value;
+            const fixo = document.getElementById('fixo_cont').value;
+            const descricao = document.getElementById('descricao_cont').value;
+
+            // Formata a mensagem para o WhatsApp
+            const mensagem = `Olá, meu nome é ${nome}. Meu e-mail é ${email}, meu telefone é ${telefone}, e meu telefone fixo é ${fixo}. Mensagem: ${descricao}`;
+
+            // Codifica a mensagem para usar na URL
+            const mensagemEncoded = encodeURIComponent(mensagem);
+
+            // Cria a URL do WhatsApp com a mensagem
+            const whatsappURL = `https://api.whatsapp.com/send?phone=27997781674&text=${mensagemEncoded}`;
+
+            // Redireciona o usuário para a URL do WhatsApp
+            window.location.href = whatsappURL;
+        });
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </body>
 
